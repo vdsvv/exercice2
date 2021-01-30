@@ -1,0 +1,45 @@
+<div>
+    <div style="background:#fff">
+      <div style="padding: 20px 20px 10px 20px; font-weight: 500; font-size: large;">USERS</div>
+    </div>
+    <div style="background:#fff">
+      <button mat-raised-button color="add" style="margin:10px 20px 10px 20px" (click)="addUser()"> 
+        <mat-icon>add</mat-icon>
+        Add user
+      </button>
+    </div>
+</div>
+
+<div style="overflow:hidden;">
+    <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center center">
+      <div fxFlex="25%" fxFlex.md="33%" fxFlex.xs="100%" fxFlex.sm="33%" 
+           *ngFor="let user of dataSource.data; index as i;">
+        <mat-card class="mat-elevation-z0">
+          <mat-card-content>
+            <b>First Name</b>
+            <p style="height: 1em;">
+              {{user.firstName}}
+            </p>
+            <b>Middle Name</b>
+            <p style="height: 1.0em;">
+              {{user.middleName}}
+            </p>
+            <b>Last Name</b>
+            <p style="height: 1.0em;">
+              {{user.lastName}}
+            </p>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button mat-icon-button (click)="updateUser(user)">
+              <mat-icon class="base-action-color">edit</mat-icon>  
+            </button>
+            <button mat-icon-button (click)="deleteUser(user)">
+              <mat-icon class="base-action-color">delete</mat-icon>
+            </button>
+            <div fxFlex></div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
